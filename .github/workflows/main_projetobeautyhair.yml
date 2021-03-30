@@ -7,9 +7,10 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: windows-latest
 
     steps:
@@ -23,11 +24,30 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+        name: java-app
+        path: '${{ github.workspace }}/target/*.war'
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v2
+      with:
+        name: java-app
+
     - name: Deploy to Azure Web App
-id: deploy-to-webapp
+      id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'projetobeautyhair'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ff3ccf51498c4bebbab43cc0177b9109 }}
-        package: '${{ github.workspace }}/target/*.war'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d7d1ba3415ac4a9cbbccaf2ce1a770ad }}
+        package: '*.war'
