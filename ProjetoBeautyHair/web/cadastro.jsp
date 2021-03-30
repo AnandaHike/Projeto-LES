@@ -1,11 +1,12 @@
 <%-- 
     Document   : cadastro
-    Created on : 23 de mar de 2021, 13:20:01
+    Created on : 29 de mar de 2021, 18:58:55
     Author     : nanda
 --%>
-<%@page import="br.edu.fatecpg.les.bd.DbListener" %>
-<%@page import="br.edu.fatecpg.les.classe.Usuario" %>
-<<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+
+<%@page import="br.edu.fatecpg.les.classes.Usuario"%>
+<%@page import="br.edu.fetecpg.les.db.DbListener"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%
     String exceptionMessage = null;
@@ -13,17 +14,17 @@
         response.sendRedirect(request.getRequestURI());
     }
     if (request.getParameter("FormInserir") != null) {
-        try {
+        try{
             String login = request.getParameter("login");
             String nome = request.getParameter("nome");
             String papel = request.getParameter("papel");
-            int cpf = Integer.parseInt(request.getParameter("cpf"));
-            int telefone = Integer.parseInt(request.getParameter("telefone"));
+            String cpf = request.getParameter("cpf");
+            String telefone = request.getParameter("telefone");
             String password = request.getParameter("password");
             Usuario.CadastrarUsuario(login, nome, papel, cpf, telefone, password);
             response.sendRedirect(request.getRequestURI());
-        } catch (Exception ex) {
-            exceptionMessage = ex.getLocalizedMessage();
+        }catch (Exception ex){
+             exceptionMessage = ex.getLocalizedMessage();
         }
     }
 %>
@@ -47,11 +48,11 @@
                 <div>Nome: </div>
                 <div><input type="text" name="nome"/></div><br>
                 <div>Função: </div>
-                <div><input type="text" name="papel"/></div><br>
+                <div><input type="text" name="nome"/></div><br>
                 <div>CPF: </div>
-                <div><input type="number" name="cpf"/></div><br>
+                <div><input type="text" name="cpf"/></div><br>
                 <div>Contato: </div>
-                <div><input type="number" name="telefone"/></div><br>
+                <div><input type="text" name="telefone"/></div><br>
                 <div>Senha </div>
                 <div><input type="password" name="password"/></div><br>
                 <input type="submit" name="FormInserir" value="Inserir"/>

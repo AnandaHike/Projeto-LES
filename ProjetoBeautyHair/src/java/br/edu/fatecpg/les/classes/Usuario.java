@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.fatecpg.les.classe;
+package br.edu.fatecpg.les.classes;
 
 import java.util.ArrayList;
 import java.sql.*;
-import br.edu.fatecpg.les.bd.DbListener;
+import br.edu.fetecpg.les.db.DbListener;
 
 /**
  *
@@ -17,8 +17,8 @@ public class Usuario {
     private String login;
     private String nome;
     private String papel;
-    private int cpf;
-    private int telefone;
+    private String cpf;
+    private String telefone;
     
     public static Usuario getUser(String login, String password) throws Exception{
         Usuario user = null;
@@ -33,8 +33,8 @@ public class Usuario {
             rs.getString("login"),
             rs.getString("nome"),
             rs.getString("role"),
-            rs.getInt("cpf"),
-            rs.getInt("telefone"));
+            rs.getString("cpf"),
+            rs.getString("telefone"));
         }
         rs.close();
         stmt.close();
@@ -42,7 +42,7 @@ public class Usuario {
         return user;
     }
     
-     public static void changePassword(String login, String newPassword) throws Exception{
+    public static void changePassword(String login, String newPassword) throws Exception{
         Connection con = DbListener.getConnection();
         //Para evitar o SQL injection, usa-se o PreparedStatement
         PreparedStatement stmt = con.prepareStatement
@@ -53,8 +53,8 @@ public class Usuario {
         stmt.close();
         con.close();
     }
-     
-     public static ArrayList<Usuario> getList() throws Exception{
+    
+    public static ArrayList<Usuario> getList() throws Exception{
         ArrayList<Usuario> list = new ArrayList<>();
         Connection con = DbListener.getConnection();
         Statement stmt = con.createStatement();
@@ -64,30 +64,39 @@ public class Usuario {
             rs.getString("login"),
             rs.getString("nome"),
             rs.getString("role"),
-            rs.getInt("cpf"),
-            rs.getInt("telefone")));
+            rs.getString("cpf"),
+            rs.getString("telefone")));
         }
         rs.close();
         stmt.close();
         con.close();
         return list;
     }
-     
-     public static void CadastrarUsuario(String login, String nome, String papel, int cpf, int telefone, String password)throws Exception{
-         Connection con = DbListener.getConnection();
+    
+    public static void CadastrarUsuario(String login, String nome, String papel, String cpf, String telefone, String password)throws Exception{
+        Connection con = DbListener.getConnection();
         PreparedStatement stmt = con.prepareStatement("INSERT INTO usuario(login, nome, role, cpf, telefone, password_hash) VALUES(?,?,?,?,?,?)");
         stmt.setString(1, login);
         stmt.setString(2, nome);
         stmt.setString(3, papel);
-        stmt.setInt(4, cpf);
-        stmt.setInt(5, telefone);
+        stmt.setString(4, cpf);
+        stmt.setString(5, telefone);
         stmt.setLong(6, password.hashCode());
         stmt.execute();
         stmt.close();
         con.close();
-     }
+    }
+    
+     public static void excluirUsuario(String login)throws Exception{
+        Connection con = DbListener.getConnection();
+        PreparedStatement stmt = con.prepareStatement("DELETE FROM usuario WHERE login= ?");
+        stmt.setString(1, login);
+        stmt.execute();
+        stmt.close();
+        con.close();
+    }
 
-    public Usuario(String login, String nome, String papel, int cpf, int telefone) {
+    public Usuario(String login, String nome, String papel, String cpf, String telefone) {
         this.login = login;
         this.nome = nome;
         this.papel = papel;
@@ -95,11 +104,11 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -127,21 +136,22 @@ public class Usuario {
         this.papel = papel;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
     
-     public static String getCreateStatement(){
+    public static String getCreateStatement(){
          return "CREATE TABLE IF NOT EXISTS usuario("
-                 + "login VARCHAR(100) PRIMARY KEY,"
+                 + "login VARCHAR(100) PRIMARY KEY NOT NULL,"
                  + "nome VARCHAR(50) NOT NULL,"
-                 + "role VARCHAR (10) NOT NULL,"
-                 + "cpf NUMERIC(11,0) NOT NULL,"
-                 + "telefone NUMERIC(11,0) NOT NULL,"
+                 + "role VARCHAR (10),"
+                 + "cpf VARCHAR(14) NOT NULL,"
+                 + "telefone VARCHAR(15) NOT NULL,"
                  + "password_hash LONG NOT NULL)";
      }
+    
 }
