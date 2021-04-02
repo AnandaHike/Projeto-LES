@@ -1,5 +1,5 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "appService.defaultWebAppToDeploy": "/subscriptions/46e4289f-0c12-40db-bad4-397e411d3da6/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/projetobeautyhair",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": "ProjetoLes-Agendamento.war",
+    "appService.defaultWebAppToDeploy": "/subscriptions/46e4289f-0c12-40db-bad4-397e411d3da6/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/projeto-beautyhair"
 }
