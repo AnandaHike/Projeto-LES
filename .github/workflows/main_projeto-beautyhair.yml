@@ -21,8 +21,8 @@ jobs:
       with:
         java-version: '11'
 
-    - name: Build with Maven
-      run: mvn clean install
+    - name: Build with war
+      run: ProjetoLes-Agendamento.war
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
