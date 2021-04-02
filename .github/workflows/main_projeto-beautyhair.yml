@@ -22,7 +22,7 @@ jobs:
         java-version: '11'
 
     - name: Build with war
-      run: ProjetoLes-Agendamento.war
+      run: mvn -f C:\maven <goals> ...
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
