@@ -1,7 +1,7 @@
 <html>
 <body>
-<?php
-include_once("index.html");
-?>
+	<?php
+	include_once("index.html");
+	?>
 </body>
 </html>
