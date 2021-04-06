@@ -1,0 +1,61 @@
+/* Configuração do topo */
+
+div.bg1{
+	background-color: #563d7c;
+	height: 50px;
+	border:1px solid #ffff;
+}
+div.bg2{
+	background-color: #9275BE;
+	height: 50px;
+	border:1px solid #ffff;
+}
+div.bg3{
+	background-color: #2C1451;
+	height: 50px;
+	border:1px solid #ffff;
+}
+
+h1{
+	color: hsl(224, 79%, 9%);
+}
+
+body{
+	background:
+    radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+    #fff;
+    background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+	background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+}
+.emoji{
+	--image-url: url("data:image/svg+xml,<svg width='150px' height='150px' xmlns='http://www.w3.org/2000/svg'> <clipPath id='emojiClipPath'> <text x='0' y='130px'  font-size='130px'>🦕</text> </clipPath> <rect x='0' y='0' fill='green' width='150px' height='150px' clip-path='url(%23emojiClipPath)'/>  </svg>");
+	background: var(--image-url);
+	shape-outside: var(--image-url);
+	float: left;
+	width: 150px;height: 150px;
+	margin-left: -6px;
+	}
+.shadow{
+	box-shadow: 20px 20px 20px rgba(0,0,0,.4);
+	background: #6d3252;
+}
+
+.retro{
+	background-color: #f4f4dc;
+	color: #49281f;
+	text-shadow: 4px 4px 0 #f4f4dc,
+		     6px 6px 0 #49281f;
+}
+
+.blurry{
+	background-color: #eeeeee;
+	color: transparent;
+	text-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+
+
