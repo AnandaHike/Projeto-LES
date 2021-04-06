@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+    color: white;
+    height: 50px;
+    font-style: italic;
+}
+h2{
+    font-style: italic;
+}
+header{
+    background-color: #8B008B;
+    margin: auto;
+    width: 100%;
+    top: 0px;
+}
+div.bg1 {
+    background-color: #D8BFD8;
+}
+div.bg2 {
+    background-color: #8B008B;
+}
+p.bg3 {
+    color: white;
+}
+h5{
+    color: white;
+}
+button.bg{
+    background-color: #8B008B;
+}
