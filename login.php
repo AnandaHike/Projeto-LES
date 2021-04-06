@@ -16,10 +16,10 @@ $query = $db->query($sql);
 foreach($db->query($sql)as $row)
 
 if ($row>0){
-	$_SESSION['nome'] = $row['email'];
+	$_SESSION['email'] = $row['email'];
         //desconectar
         mysqli_close($db);
-        header("Location: areaUsuario.php");
+        header("Location: index.php");
         exit;
         
 }
