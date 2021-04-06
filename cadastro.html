@@ -24,67 +24,45 @@
 
   </div>
 </div>
-      <a href="Index.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16"> 
-  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/> 
 
-
-</svg> Página Inicial </a>
-
-
-  <div class="card text-center" >
-  <div class="card-header">
-  <div class="card-body">
-
-		<br><form action="create.php" method="post">
-
-			<div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputEmail4">Nome</label>
-      <input type="text" name="nome" class="form-control" id="inputNome4">
-    </div>
-
-      <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputEmail4">Telefone</label>
-      <input type="text" name="telefone" class="form-control" id="inputtelefone4">
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputPassword4">CPF  </label>
-      <input type="text" name="cpf" class="form-control" id="inputcpf4">
-    </div>
-
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputEmail4">Email</label>
-      <input type="text" name="email" class="form-control" id="inputEmail4">
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputPassword4">Senha</label>
-      <input type="password" name="senha" class="form-control" id="inputpassword4">
-    </div>
-
- 
-
-  <div class="form-group">
-    <div class="form-check">
-      <br><input class="form-check-input" name="termo" value="s" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Li e concordo com os termos de segurança.
-        <div class="alert alert " role="alert">
+<form action="create.php" method="post">
+            <div class="container-fluid">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nome</label>
+                        <input type="text" name="nome" class="form-control" id="inputName4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword4">Senha</label>
+                    <input type="password" name="senha" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword4">Contato</label>
+                    <input type="password" name="senha" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword4">CPF</label>
+                    <input type="password" name="senha" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Li e concordo com os termos
+                            <div class="alert alert " role="alert">
     Clique aqui para ler os <a href="termosdeseguranca.html" class="alert-link">termos de segurança</a>. 
 </div>
-
-      </label>
-    </div>
-  </div>
- <br><button type="submit" class="btn btn-outline-success">Salvar</button>
-</form>
- </div>
- </div>
-</div>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+        </form>
 
 
 <!--FOOTER PADRÃO -->
