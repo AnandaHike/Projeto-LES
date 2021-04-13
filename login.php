@@ -1,5 +1,4 @@
 <?php
-session_start(); 
 
 include_once("bd.php");
 
@@ -15,14 +14,9 @@ $query = $db->query($sql);
                         
 foreach($db->query($sql)as $row)
 
-if ($row>0){
-	$_SESSION['email'] = $row['email'];
-        //desconectar
-        pg_close($db);
-        header("Location: index.php");
-        exit;
-        
-}
+$strconsulta=pg_query($conexao, "select * from usuario where nm_email='$email' and nm_senha='$senha'");
+$numregs=pg_num_rows($strconsulta);
+echo "Já tem ".$numregs." registro(s) neste código";
                                     
 //desconectar
 pg_close($db);
