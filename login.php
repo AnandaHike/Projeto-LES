@@ -6,13 +6,6 @@ include_once("bd.php");
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-                                  
-$sql = "SELECT * FROM usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';";
-
-
-$query = $db->query($sql);
-                        
-foreach($db->query($sql)as $row)
 
 $strconsulta=pg_query($conexao, "select * from usuario where nm_email='$email' and nm_senha='$senha'");
 $numregs=pg_num_rows($strconsulta);
