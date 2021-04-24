@@ -17,10 +17,10 @@ if(!empty($_POST))
   '${contato}',
    '${cpf}')";
 	
-$query = $mysqli->query($sql);
+$query = $BDconexao->query($sql);
  
 if ($query){
-	$sql = "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname = d80reggh2q0cv7() AND pid <> pg_backend_pid()";
+	
 	header("Location: login.html");exit;
 	}
 	else{
