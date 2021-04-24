@@ -8,7 +8,7 @@ $senha = $_POST['senha'];
 
 $query = pg_query($BDconexao, "SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';");
                         
-foreach($query as $row)
+foreach(pg_query($BDconexao, "SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';") as $row)
 
 if ($row>0){
 	$_SESSION['email'] = $row['email'];
