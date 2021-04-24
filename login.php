@@ -18,7 +18,7 @@ foreach($db->query($sql)as $row)
 if ($row>0){
 	$_SESSION['email'] = $row['email'];
         //desconectar
-        mysqli_close($db);
+        pg_close($db);
         header("Location: index.php");
         exit;
         
