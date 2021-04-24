@@ -20,7 +20,7 @@ if(!empty($_POST))
 $query = $mysqli->query($sql);
  
 if ($query){
-	mysqli_close($mysqli);
+	$sql = "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname = d80reggh2q0cv7() AND pid <> pg_backend_pid()";
 	header("Location: login.html");exit;
 	}
 	else{
@@ -30,3 +30,4 @@ if ($query){
 
 }
 ?>
+
