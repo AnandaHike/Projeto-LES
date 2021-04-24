@@ -8,7 +8,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
                                   
-$sql = "SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';";
+$sql = "SELECT * FROM usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';";
 
 
 $query = $db->query($sql);
