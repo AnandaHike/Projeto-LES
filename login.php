@@ -10,9 +10,9 @@ $senha = $_POST['senha'];
 $sql = "SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';";
 
 
-$query = $db->query($sql);
+$query = $db->pg_query($sql);
                         
-foreach($db->query($sql)as $row)
+foreach($db->pg_query($sql)as $row)
 
 if ($row>0){
 	$_SESSION['email'] = $row['email'];
