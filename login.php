@@ -12,8 +12,8 @@ $query->execute();
 if($query->rowCount()>0){ 
 	$_SESSION['email'] = $row['email'];
         //desconectar
-        pg_close($BDconexao);
         header("Location: index.php");
+        pg_close($BDconexao);
         exit;
         
 }
