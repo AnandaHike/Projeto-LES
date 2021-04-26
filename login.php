@@ -6,21 +6,20 @@ include_once("bd.php");
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$query = pg_query($BDconexao, "SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';");
-                        
-foreach(pg_query($BDconexao, "SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';") as $row)
+$query = $BDconexao->prepare("SELECT * FROM public.usuario WHERE nm_email = '${email}' AND nm_senha = '${senha}';");                     
+$query->execute();
 
-if ($row>0){
+if($query->rowCount()>0){ 
 	$_SESSION['email'] = $row['email'];
         //desconectar
-        pg_close($db);
+        pg_close($BDconexao);
         header("Location: index.php");
         exit;
         
 }
                                     
 //desconectar
-pg_close($db);
+pg_close($BDconexao);
 header("Location: login_form.php?msg=1&email=$email");   
                                   
 exit;
