@@ -1,0 +1,254 @@
+main.dashboard {
+  display: flex;
+  padding-left: 200px;
+
+  section.content {
+    padding: 2rem;
+    width: 100%;
+    flex: 1;
+
+    .index-page {
+      .search-form {
+        display: flex;
+        align-items: flex-end;
+        margin: 2rem 0;
+        justify-content: flex-start;
+
+        > .icon {
+          font-size: 20px;
+          margin: 0 2rem .8rem 1rem;
+          color: $red;
+        }
+
+        .label {
+          margin-right: 1rem;
+        }
+
+        .button-container {
+          margin-left: 1rem;
+        }
+
+        .button {
+          width: inherit;
+
+          &.green {
+            background-color: $darken-red;
+
+            &:hover {
+              background-color: darken($darken-red, 5%);
+            }
+          }
+
+          .icon {
+            color: #FFF;
+            margin-right: 1rem;
+            display: inline;
+          }
+        }
+      }
+
+      &.schedule {
+        .button-container {
+          display: block;
+          margin-bottom: 1rem;
+
+          .icon {
+            margin-right: 1rem;
+          }
+        }
+
+        .calendar-container {
+
+          .fc-daygrid-event {
+            color: #000;
+            flex-wrap: wrap;
+            white-space: pre-wrap;
+          }
+
+          .fc-daygrid-day {
+            cursor: pointer;
+
+            &:hover {
+              background-color: #EEE;
+            }
+          }
+
+          .fc-day-today {
+            background-color: #F7F7F7;
+          }
+
+          .fc-daygrid-event-harness {
+            &:not(:last-child) {
+              margin-bottom: .5rem;
+            }
+          }
+
+          .fc-toolbar-title {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .create-page {
+      max-width: 800px;
+
+      .title {
+        margin-bottom: 2rem;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+  
+        .row {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+  
+          .col {
+            max-width: 48%;
+            width: 100%;
+          }
+  
+          &.to-right {
+            justify-content: flex-end;
+          }
+        }
+  
+        .label {
+          margin-bottom: 2rem;
+          position: relative;
+
+          .empty {
+            position: absolute;
+            bottom: calc(100% - 1rem);
+            right: 0;
+            font-size: 12px;
+            max-width: 75%;
+            text-align: right;
+          }
+          
+          .input {
+            max-width: 100%;
+          }
+        }
+  
+        .forgot {
+          color: $red;
+          text-align: right;
+          font-size: 13px;
+          margin: .5rem 0 1rem;
+          display: inline-block;
+  
+        }
+
+        .button-container {
+          width: 100%;
+          margin-right: 1rem;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      &.schedule {
+        .form {
+          .col {
+
+            &.to-right {
+              display: flex;
+            }
+          }
+
+          .delete.button {
+            display: inline-flex;
+            align-items: center;
+            margin-left: auto;
+            width: auto;
+
+            .icon {
+              margin-right: 1rem;
+            }
+          }
+        }
+
+        .delete-row {
+          margin-top: 2rem;
+          max-width: 48%;
+          width: 100%;
+
+          .button {
+
+            .icon {
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    padding-left: 0;
+    padding: 100px 1rem 0;
+
+    section.content {
+      padding: 2rem 0;
+
+      .index-page {
+        .search-form {
+          flex-direction: column;
+          align-items: center;
+
+          .label {
+            &:not(:last-child) {
+              margin-bottom: 1rem;
+            }
+
+            width: 100%;
+            margin-right: 0;
+
+            .input {
+              max-width: 100%;
+            }
+          }
+
+          .button {
+            width: 100%;
+
+            &:not(:last-child) {
+              margin-bottom: 1rem;
+            }
+          }
+
+          .button-container {
+            margin-left: 0;
+            width: 100%;
+          }
+        }
+      }
+
+      .create-page {
+        max-width: 100%;
+
+        .form {
+          .row {
+            flex-direction: column;
+
+            .col {
+              max-width: 100%;
+            }
+          }
+        }
+
+        .delete-row {
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
+}

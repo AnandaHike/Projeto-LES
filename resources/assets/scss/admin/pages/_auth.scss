@@ -1,0 +1,89 @@
+main.auth-page {
+  min-height: 100vh;
+  background-color: $red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+
+  .form-container {
+    background-color: #FFF;
+    max-width: 400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    &.large { max-width: 700px; }
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 3rem;
+    }
+
+    .desc {
+      margin-bottom: 2rem;
+      display: block;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .row {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .col {
+          max-width: 48%;
+          width: 100%;
+        }
+
+        &.to-right {
+          justify-content: flex-end;
+        }
+      }
+
+      .label {
+        margin-bottom: 2rem;
+        
+        .input {
+          max-width: 100%;
+        }
+      }
+
+      .forgot {
+        color: $red;
+        text-align: right;
+        font-size: 13px;
+        margin: .5rem 0 1rem;
+        display: inline-block;
+
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 2rem 1rem;
+
+    .form-container {
+      width: 100%;
+
+      .form {
+        .row {
+          flex-direction: column;
+
+          .col {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

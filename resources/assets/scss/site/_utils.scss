@@ -1,0 +1,17 @@
+//  FONTS
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$montserrat: 'Montserrat', sans-serif;
+
+//  COLORS
+$red: #C73736;
+$darken-red: darken($red, 10%);
+
+$error: #E11614;
+$success: #14E135;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

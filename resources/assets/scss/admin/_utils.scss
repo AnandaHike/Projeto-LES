@@ -1,0 +1,145 @@
+//  FONTS
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$montserrat: 'Montserrat', sans-serif;
+
+//  COLORS
+$red: #C73736;
+$darken-red: darken($red, 10%);
+
+$error: #E11614;
+$success: #14E135;
+
+//  BUTTONS
+@mixin button($colored: false) {
+  padding: .8rem 2rem;
+  border: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  color: $red;
+  cursor: pointer;
+  transition: .2s;
+
+  @if($colored) {
+    background-color: $red;
+    color: #FFF;
+
+    &:hover { background-color: $darken-red; }
+  }
+  @else {
+    &:hover { background-color: #F5F5F5; }
+  }
+}
+
+.button {
+  &.colored { @include button(true); }
+  &:not(.colored) { @include button; }
+}
+
+//  ALERTS
+.alert {
+  width: 100%;
+  padding: .75rem .5rem .5rem;
+  font-size: 12px;
+  margin: 0 0 2rem;
+  position: relative;
+  text-align: center;
+
+  &.success {
+    background-color: rgba($success, .3);
+
+    &:after { background: url("../../img/icons/success.svg") center/contain no-repeat; }
+  }
+
+  &.error {
+    background-color: rgba($error, .3);
+
+    &:after { background: url("../../img/icons/error.svg") center/contain no-repeat; }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: calc(50% - 10px);
+  }
+}
+
+//  INPUT
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  align-items: flex-start;
+
+  &.center {
+    text-align: center;
+  }
+
+  .input {
+    padding: .8rem 1rem;
+    font-size: 14px;
+    border: 1px solid #AAA;
+    border-radius: 4px;
+    margin-top: .25rem;
+    max-width: 250px;
+    width: 100%;
+  }
+}
+
+//  TABLE
+.table-container {
+  width: 100%;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead, tbody {
+      tr {
+        th, td {
+          text-align: center;
+          border: 1px solid #DDD;
+          padding: .5rem;
+          font-size: 14px;
+
+          .action {
+            padding: .5rem .75rem;
+            border: none;
+            border-radius: 5px;
+            color: #FFF;
+            cursor: pointer;
+            transition: .2s;
+
+            &.edit {
+              background-color: #2196f3;
+
+              &:hover {
+                background-color: darken(#2196f3, 10%);
+              }
+            }
+
+            &.delete {
+              background-color: $red;
+
+              &:hover {
+                background-color: darken($red, 10%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    overflow: auto;
+  }
+}
