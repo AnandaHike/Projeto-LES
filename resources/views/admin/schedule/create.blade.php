@@ -22,6 +22,16 @@
             @endforeach
           </select>
         </label>
+        @else
+        <label class="label center">
+          Cliente:
+          <select name="user_id" class="input" required>
+            <option value="">Selecione</option>
+            @foreach ($clients as $client)
+            <option value="{{$client->id}}">{{$client->full_name}}</option>
+            @endforeach
+          </select>
+        </label>
         @endif
 
         <label class="label center">
