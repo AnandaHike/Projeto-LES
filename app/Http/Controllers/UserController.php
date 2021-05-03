@@ -67,7 +67,7 @@ class UserController extends Controller
             'secret_question' => $request->secret_question,
             'secret_answer' => $request->secret_answer,
             'password' => md5($request->password),
-            'function' => $request->function ?? 'client',
+            'function' => $request->function ? $request->function : 'client',
         ]);
 
         if (Route::currentRouteName() === 'admin.auth.create')
