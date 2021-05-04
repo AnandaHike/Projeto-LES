@@ -5,7 +5,7 @@
 
   <div class="form-container">
 
-  <a href="../site/index.blade">
+  <a href="../site/index.blade.php">
       <img src="{{ asset('img/logo.svg') }}" alt="" class="logo">
     </a>
 
