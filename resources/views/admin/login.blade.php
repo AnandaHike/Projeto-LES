@@ -5,7 +5,9 @@
 
   <div class="form-container">
 
-    <img src="{{ asset('img/logo.svg') }}" alt="" class="logo">
+  <a href="../site/index.blade">
+      <img src="{{ asset('img/logo.svg') }}" alt="" class="logo">
+    </a>
 
     @include('admin.includes.messages')
 
