@@ -5,7 +5,9 @@
 
   <div class="form-container">
 
-    <img src="{{ asset('img/logo.svg') }}" alt="" class="logo">
+    <a href="{{ route('site.dashboard.schedule.index') }}">
+      <img src="{{ asset('img/logo.svg') }}" alt="" class="logo">
+    </a>
 
     @include('admin.includes.messages')
 
