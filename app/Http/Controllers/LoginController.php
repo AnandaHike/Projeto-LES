@@ -21,7 +21,7 @@ class LoginController extends Controller
         if ($user && Auth::loginUsingId($user->id)) {
             $request->session()->regenerate();
             if (strlen($user->secret_question) < 1)
-                return redirect()->route('admin.auth.show')->with('error', 'Selecione uma pergunta secreta e uma resposta');
+                return redirect()->route('admin.auth.show');
 
             return redirect()->route('admin.dashboard.index');
         }
