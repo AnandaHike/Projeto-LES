@@ -5,9 +5,9 @@
 
   <div class="form-container">
 
-  <a href="../site/index.blade.php">
+  <a href="/">
       <img src="{{ asset('img/logo.svg') }}" alt="" class="logo">
-    </a>
+  </a>
 
     @include('admin.includes.messages')
 
