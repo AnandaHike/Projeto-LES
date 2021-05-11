@@ -8,8 +8,10 @@
 
   @include('admin.includes.messages')
 
-  <form action="{{route('admin.auth.create')}}" method="POST" class="form">
+  <form method="POST" class="form">
     @csrf
+    @method('PUT')
+    <input type="hidden" name="id" value="{{$user->id}}">
     <div class="row">
       <div class="col">
         <label class="label center">
@@ -26,7 +28,7 @@
           CPF:
           <input type="text" name="cpf" value='{{ $user->cpf }}' class="input" required>
         </label>
-        
+
         <label class="label center">
           Celular:
           <input type="text" name="cellphone" value='{{ $user->cellphone }}' class="input">
@@ -39,18 +41,17 @@
           Pergunta Secreta:
           <select name="secret_question" class="input" required>
             <option value="">Selecione</option>
-            <option value="Qual o nome de solteira da sua mãe?">Qual o nome de solteira da sua mãe?</option>
-            <option value="Qual o nome do seu primeiro animal de estimação?">Qual o nome do seu primeiro animal de estimação?</option>
-            <option value="Qual o modelo do seu primeiro carro?">Qual o modelo do seu primeiro carro?</option>
-            <option value="Em que cidade você nasceu?">Em que cidade você nasceu?</option>
-            <option value="Qual o nome do meio do seu pai?">Qual o nome do meio do seu pai?</option>
-            <option value="Qual o seu apelido?">Qual o seu apelido?</option>
+            <option {{ $user->secret_question == 'Qual o nome de solteira da sua mãe?' ? 'selected' : '' }} value="Qual o nome de solteira da sua mãe?">Qual o nome de solteira da sua mãe?</option>
+            <option {{ $user->secret_question == 'Qual o nome do seu primeiro animal de estimação?' ? 'selected' : '' }} value="Qual o nome do seu primeiro animal de estimação?">Qual o nome do seu primeiro animal de estimação?</option>
+            <option {{ $user->secret_question == 'Qual o modelo do seu primeiro carro?' ? 'selected' : '' }} value="Qual o modelo do seu primeiro carro?">Qual o modelo do seu primeiro carro?</option>
+            <option {{ $user->secret_question == 'Em que cidade você nasceu?' ? 'selected' : '' }} value="Em que cidade você nasceu?">Em que cidade você nasceu?</option>
+            <option {{ $user->secret_question == 'Qual o seu apelido?' ? 'selected' : '' }} value="Qual o seu apelido?">Qual o seu apelido?</option>
           </select>
         </label>
 
         <label class="label center">
           Resposta:
-          <input type="text" name="secret_answer" value='{{old('secret_answer')}}' class="input" required>
+          <input type="text" name="secret_answer" value='{{ $user->secret_answer }}' class="input" required>
         </label>
 
         <label class="label center">

@@ -45,6 +45,7 @@ Route::group(["prefix" => "/admin", "as" => "admin."], function () {
       Route::get("/", [UserController::class, "index"])->name("index");
       Route::get("/cadastrar", [UserController::class, "create"])->name("create");
       Route::get("/editar/{id}", [UserController::class, "edit"])->name("edit");
+      Route::put("/editar/{id}", [UserController::class, "update"])->name("update");
       Route::delete("/deletar/{id}", [UserController::class, "destroy"])->name("destroy");
     });
 
