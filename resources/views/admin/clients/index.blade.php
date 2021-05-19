@@ -55,6 +55,11 @@
           <td>{{ $user->cpf }}</td>
           <td>{{ $user->cellphone }}</td>
           <td>
+            <a href="{{route('admin.dashboard.clients.edit', ['id' => $user->id])}}">
+              <button class="action edit"><i class="icon fa fa-pen"></i></button>
+            </a>
+          </td>
+          <td>
             <form action="{{route('admin.dashboard.clients.destroy', ['id' => $user->id])}}" method="POST">
               @csrf
               @method('DELETE')

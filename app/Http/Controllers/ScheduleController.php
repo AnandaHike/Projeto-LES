@@ -11,11 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        if (Auth::user()->function != 'client')
-            $schedule = Schedule::all();
-        else $schedule = Schedule::where('user_id', Auth::id())->get();
+        $arrayDate = explode('-', $request->date);
+        $schedule = Schedule::where(function ($query) use ($request, $arrayDate) {
+            if ($request->date) {
+                $query->where([['day', $arrayDate[2]], ['month', $arrayDate[1]], ['year', $arrayDate[0]]]);
+            }
+            if (Auth::user()->function == 'client')
+                $query->where('user_id', Auth::id());
+        })->get();
+        if ($request->date)
+            return view('admin.schedule.show', ['schedule' => $schedule, 'date' => $arrayDate[2] . '/' . $arrayDate[1] . '/' . $arrayDate[0], 'full_date' => $request->date]);
         return view('admin.schedule.index', ['schedule' => $schedule]);
     }
 
@@ -74,11 +81,6 @@ class ScheduleController extends Controller
 
 
         return redirect()->route('admin.dashboard.schedule.index')->with('success', 'Cadastrado com sucesso!');
-    }
-
-    public function show(Schedule $schedule)
-    {
-        return view('');
     }
 
     public function edit(Schedule $schedule, $id)
