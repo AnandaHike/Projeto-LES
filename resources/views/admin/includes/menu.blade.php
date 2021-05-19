@@ -31,7 +31,7 @@
 
       <li>
         <a href="{{ route("admin.dashboard.users.index") }}" class="item @if(Request::segment(2) == "usuarios") active @endif">
-          Usuários
+          Administradores
         </a>
       </li>
     @endif
