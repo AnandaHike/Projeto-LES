@@ -15,6 +15,7 @@
         <th>ID</th>
         <th>Cliente</th>
         <th>Serviço</th>
+        <th>Preço</th>
       </tr>
     </thead>
 
@@ -24,6 +25,7 @@
         <td>{{ $event->id }}</td>
         <td>{{ $event->user->full_name }}</td>
         <td>{{ $event->service->name }}</td>
+        <td>{{ $event->service->price }}</td>
       </tr>
       @endforeach
     </tbody>
