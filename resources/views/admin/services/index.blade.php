@@ -19,10 +19,9 @@
       Categoria:
       <input type="text" class="input" name="category">
     </label>
-    <button type="submit" class="button colored">Buscar</button>
 
     @if(Auth::user()->function != 'client')
-      
+      <button type="submit" class="button colored">Buscar</button>
 
       <a href="{{ route('admin.dashboard.services.create') }}" class="button-container">
         <button type="button" class="button colored"><i class="icon fa fa-plus"></i>Cadastrar</button>

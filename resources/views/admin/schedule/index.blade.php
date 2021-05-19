@@ -50,9 +50,8 @@
       disableDragging: true,
       droppable: false,
       dateClick: function(info) {
-        //  ON CLICK DATE
-        if (!info.dayEl.classList.contains("fc-day-past"))
-          window.location.href = "{{ route('admin.dashboard.schedule.create', 'date=') }}" + info.dateStr;
+        // if (!info.dayEl.classList.contains("fc-day-past"))
+          window.location.href = `${window.location.href.split('?')[0]}?date=${info.dateStr}`
       },
     });
 

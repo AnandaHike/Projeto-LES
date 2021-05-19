@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="index-page">
-  <h1 class="title">Administradores</h1>
+  <h1 class="title">Usuários</h1>
 
   @include('admin.includes.messages')
 
