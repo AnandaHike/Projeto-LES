@@ -110,13 +110,14 @@ class UserController extends Controller
             'email' => $request->email,
             'cpf' => $request->cpf,
             'cellphone' => $request->cellphone,
-            if ($request->password == $request->password_confirm) {
-                'password' => md5($request->password);
-            }
-            'password' => md5($request->password),
             'secret_question' => $request->secret_question,
             'secret_answer' => $request->secret_answer,
         ]);
+
+        if ($request->password == $request->password_confirm) {
+            $user->update(['password' => md5($request->password)]);
+            return redirect()->route('admin.auth.login')->with('success', 'Senha alterada');
+        }
 
         return back()->with('success', 'Editado com sucesso');
     }
