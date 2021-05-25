@@ -109,6 +109,8 @@ class UserController extends Controller
             'full_name' => $request->full_name,
             'email' => $request->email,
             'cpf' => $request->cpf,
+            'cellphone' => $request->cellphone,
+            'password' => md5($request->password),
             'secret_question' => $request->secret_question,
             'secret_answer' => $request->secret_answer,
         ]);
