@@ -103,6 +103,7 @@ class UserController extends Controller
             'full_name' => ['required'],
             'email' => ['required', 'unique:users,email,' . $user->id],
             'cpf' => ['required', 'unique:users,cpf,' . $user->id],
+            'cellphone' => ['required', 'unique:users' .$user->id],
         ]);
 
         User::where('id', $id)->update([
